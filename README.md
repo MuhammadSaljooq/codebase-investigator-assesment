@@ -103,6 +103,47 @@ npm run test:e2e
 npm run quality:gate
 ```
 
+## Expose App with ngrok
+
+Use ngrok when you want to share your local app with others using a public URL.
+
+1) Install ngrok (macOS)
+
+```bash
+brew install ngrok/ngrok/ngrok
+```
+
+2) Configure ngrok auth token (one-time)
+
+Get your token from [ngrok dashboard](https://dashboard.ngrok.com/get-started/your-authtoken), then run:
+
+```bash
+npm run ngrok:setup -- YOUR_NGROK_AUTHTOKEN
+```
+
+3) Start the app locally
+
+```bash
+npm run dev
+```
+
+4) Start the ngrok tunnel
+
+```bash
+npm run ngrok:start
+```
+
+5) Copy the public URL from ngrok output and share it.
+
+Notes:
+- Default tunnel target is `http://localhost:3000`.
+- ngrok inspector UI is available at `http://127.0.0.1:4040`.
+- If your app runs on a different port, use:
+
+```bash
+bash ./ngrok-start.sh 4000
+```
+
 ## Core Workflow
 
 1) Ingest repo (`/api/repo`)

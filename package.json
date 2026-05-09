@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "ngrok:setup": "bash ./ngrok-setup.sh",
+    "ngrok:start": "bash ./ngrok-start.sh 3000",
     "build": "next build",
     "start": "next start",
     "test": "vitest run",
