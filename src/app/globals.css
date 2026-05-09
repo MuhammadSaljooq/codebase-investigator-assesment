@@ -1,0 +1,43 @@
+/* Theme compatibility layer */
+
+.app-theme {
+  min-height: 100vh;
+}
+
+.state-error {
+  color: var(--col-danger);
+}
+
+.badge-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.msg-section {
+  margin-top: var(--space-3);
+}
+
+.msg-section .title {
+  margin-bottom: var(--space-2);
+}
+
+.audit-grid {
+  display: grid;
+  gap: var(--space-2);
+}
+
+/* Sidebar text wrapping override for long links/titles */
+.sidebar-item {
+  align-items: flex-start;
+  min-height: auto;
+}
+
+.sidebar-item .item-text {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.35;
+}

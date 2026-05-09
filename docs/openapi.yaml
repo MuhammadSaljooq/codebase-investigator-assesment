@@ -1,0 +1,55 @@
+openapi: 3.1.0
+info:
+  title: Codebase Investigator API
+  version: v1
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/repo:
+    post:
+      summary: Ingest public GitHub repository
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [repoUrl]
+              properties:
+                repoUrl:
+                  type: string
+                title:
+                  type: string
+      responses:
+        "200":
+          description: conversation created
+  /api/ask:
+    post:
+      summary: Ask investigation question
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [conversationId, question]
+              properties:
+                conversationId:
+                  type: integer
+                question:
+                  type: string
+      responses:
+        "200":
+          description: answer with audit
+  /api/history/{conversationId}:
+    get:
+      summary: Fetch conversation history
+      parameters:
+        - in: path
+          name: conversationId
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: history payload
